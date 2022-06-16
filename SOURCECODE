@@ -1,0 +1,124 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+  int n,copy1,remainder,result=0,sum=0,copy,revsum=0,lstdig,m,d,r=0,i,flag=0;
+  int t;
+  char ch;
+  printf("WELCOME TO NUMBER TYPE FINDER.\n");
+	printf("HERE IS A LIST OF THE TYPES OF NUMBER\n\n");
+	printf("Enter 1 to check for ARMSTRONG NUMBER\n");
+		printf("Enter 2 to check for MAGIC NUMBER\n");
+			printf("Enter 3 to check for PALINDROME NUMBER\n");
+				printf("Enter 4 to check for PRIME NUMBER\n");
+					printf("Enter 5 to check for EVEN or ODD NUMBER\n");
+   printf("Enter Choice\n");
+  scanf("%i",&t);
+ 
+  switch(t)// For ARMSTRONG NUMBER
+    {
+      case 1: printf("ARMSTRONG Number\n\n");
+             printf("Enter a Number\n ");
+             scanf("%d",&n);
+            
+            copy1=n;
+
+    while(copy1!=0){
+        remainder=copy1%10;
+        result+=remainder*remainder*remainder;
+        copy1/=10;
+    }
+
+    if (result==n)
+        printf("YES, it's Armstrong number");
+    else{
+        printf("NO, it's not an Armstrong number");
+}
+            break;
+      
+      case 2:   // MAGIC NUMBER
+              printf("MAGIC NUMBER\n\n");
+        printf("Enter choice \n");
+              scanf("%d",&n);
+              
+              copy1=n;
+while(n>0){
+    sum=sum+(n%10);//sum+=n%10
+    n=n/10; // n/=10
+    
+}
+
+        copy=sum;
+
+while(sum>0){
+    lstdig=sum%10;
+    revsum=(revsum*10)+lstdig;
+    sum/=10;
+}
+
+if(copy1==(copy*revsum)){
+    printf("YES, it's is a Magic Number");
+}
+else{
+    printf("NO, it's not Magic Number");
+}
+             break; 
+      
+      case 3: // PALINDROME NUMBER
+              printf("PALINDROME NUMBER\n\n");
+              printf("Enter choice \n");
+       
+             scanf("%d",&n);
+m=n;
+while(n>0){
+    d=n%10;
+    r=(r*10)+d;
+    n/=10;
+}
+if(m==r){
+    printf("YES, it's a Palindrome Number");
+}
+else{
+    printf("NO, it's not a Palindrome Number");
+}
+             break; 
+      
+      case 4: //PRIME NUMBER
+             printf("PRIME NUMBER \n\n");
+             printf("Enter a Number \n ");
+             scanf("%d",&n);
+
+
+              for(i=2;i<=(n/2);i++)
+              {
+                 if(n%i==0)
+                  {
+                      printf("No, It's not a Prime Number");
+                       flag=1;
+                       break;
+                   }
+                }
+               if(flag==0)
+               {
+                printf("Yes, It's a Prime Number");
+    
+                }
+                break;     
+              
+             
+      case 5: // EVEN ODD
+      printf("EVEN or ODD\n\n");
+             printf("Enter a Number \n ");
+             scanf("%d",&n);
+    if (n%2==0)
+        printf("The given number is Even");
+    else{
+        printf("The given number is Odd");
+}
+              break;
+      default:
+            printf("Required Number Program not specified");
+    }
+  return 0;
+}
